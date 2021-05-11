@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>Edit|Update</title>
+</head>
+<html>
+    <center>
+        <h1>
+            Edit and Update
+        </h1>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <form method="POST" action="/update/{{Employee.id}}">
+            {% csrf_token %}
+            <table border="1">
+                <tr>
+                    <tr>
+                        <td>Employee name</td>
+                        <td><input type="text" value="{{Employee.name}}" name="name"></td>
+                    </tr>
+                    <tr>
+                    <td>Employee Number</td>
+                    <td><input type="text" value="{{Employee.mob}}" name="mob"></td>
+                    </tr>
+                    <tr>
+                    <td>Employee Email</td>
+                    <td><input type="text" value="{{Employee.email}}" name="email"></td>
+                    </tr>
+                    <tr>
+                    <td>Employee Gender</td>
+                    <td>
+                        <input type="radio" group="gender" name="gender" value="M"> Male
+                        |
+                        <input type="radio" group="gender" name="gender" value="F"> Female
+                    </td>
+                    </tr>
+
+                </tr>
+                
+            </table>
+            <input type="submit" value="update the record">
+            |
+            <a href="{% url 'empdisplay' %}">Display all</a>
+            <hr>
+            {% if messages %}
+            {% for result in messages %}
+            <b style="color: green;">{{result}}</b>
+            {% endfor %}
+            {% endif %}
+
+        </form>
+    </center>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <center>
+        <h1>EMS</h1>
+        <br>
+        <hr>
+        <br>
+        <h3><a href="{% url 'EMinsert' %}">add employee record</a></h3>
+        <table border="1">
+            <tr>
+                <th>Emp_ID</th>
+                <th>Emp_name</th>
+                <th>Emp_number</th>
+                <th>Emp_email</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+            {% for displayEM in Employee%}
+                <tr>
+                    <td>{{displayEM.id}}</td>
+                    <td>{{displayEM.name}}</td> 
+                    <td>{{displayEM.mob}}</td>
+                    <td>{{displayEM.email}}</td>
+                    <td>{{displayEM.gender}}</td>
+                    <td><a href="/edit/{{displayEM.id}}">edit</a> | <a href="/delete/{{displayEM.id}}">delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+</body>

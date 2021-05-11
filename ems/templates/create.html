@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <center>
+        <h1>
+            add Employee
+        </h1>
+        <br><br>
+        <form method="POST">
+            {% csrf_token %}
+            <table border="1">
+
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Employee Email</td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Employee mob</td>
+                    <td><input type="text" name="mob"></td>
+                </tr>
+                <tr>
+                    <input type="radio" group="gender" name="gender" value="M"> Male
+                    <input type="radio" group="gender" name="gender" value="F"> Female
+                </tr>
+
+            </table>
+            <input type="submit" value="insert_record">
+            <a href="{% url 'empdisplay' %}">Display all</a>
+            <hr>
+            {% if messages %}
+            {% for result in messages %}
+            <b style="color: green;">{{result}}</b>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </center>
+</body>
